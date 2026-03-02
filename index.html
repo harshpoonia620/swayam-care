@@ -77,15 +77,15 @@ display:flex;
 flex-wrap:wrap;
 justify-content:center;
 }
-
 nav a{
-margin:8px 12px;
+margin:8px 14px;
 text-decoration:none;
-color: #0B3D2E;
-
-font-weight:500;
-font-size:14px;
+color:#0B3D2E;
+font-weight:600;      /* Thoda bold */
+font-size:16px;       /* Thoda bada */
+letter-spacing:0.5px; /* Premium spacing */
 position:relative;
+transition:0.3s ease;
 }
 nav a:hover{
 color: #D4AF37;   /* gold hover */
@@ -270,6 +270,12 @@ font-size:13px;
 }
 
 }
+@media(max-width:768px){
+nav a{
+font-size:15px;
+font-weight:600;
+}
+}
 
 </style>
 </head>
@@ -385,6 +391,7 @@ window.scrollTo({top:0,behavior:"smooth"});
 </body>
 
 </html>
+
 
 
 
