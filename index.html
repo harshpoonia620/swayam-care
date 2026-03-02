@@ -72,15 +72,20 @@ transition:0.3s;
 .logo:hover{
 color:#1F4D3A ;  /* gold on hover */
 }
-nav a{
-margin:0 15px;
-text-decoration:none;
-color:#F5F5F5;   /* light premium color */
-font-weight:500;
-position:relative;
-transition:0.3s;
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
 }
 
+nav a{
+margin:8px 12px;
+text-decoration:none;
+color:inherit;
+font-weight:500;
+font-size:14px;
+position:relative;
+}
 nav a:hover{
 color:#C6A75E;   /* gold hover */
 }
@@ -253,6 +258,17 @@ transform:translateY(0);
 header{flex-direction:column;}
 nav{margin:15px 0;}
 }
+@media(max-width:768px){
+
+nav{
+gap:10px;
+}
+
+nav a{
+font-size:13px;
+}
+
+}
 
 </style>
 </head>
@@ -262,7 +278,7 @@ nav{margin:15px 0;}
 <header>
 <div class="logo" onclick="scrollToTop()">Swayam Care</div>
 <nav>
-<a href="#about">About</a>
+
 <a href="#services">Services</a>
 <a href="#experts">Experts</a>
 <a href="#pricing">Pricing</a>
@@ -366,4 +382,5 @@ window.scrollTo({top:0,behavior:"smooth"});
 </script>
 
 </body>
+
 </html>
