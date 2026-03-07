@@ -1799,7 +1799,7 @@ const countObs = new IntersectionObserver(entries=>{
 countEls.forEach(el=>countObs.observe(el));
 
 // ── FORM MULTI-STEP ───────────────────────────────────────
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyVJlXEPdQmA937UZF3T4n2jzwR5qfUhvm5NeE3IzD9MaRIzTKDQBmPmNDn3B4rZgwE/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwld4JQOgS0pcEmcNwCO4Vng_6fLO8on60vmKca2S1ADOuWLAHxP_GcP63INyvNkb5p/exec';
 let selectedProgram = '';
 
 function scNext() {
@@ -1839,7 +1839,7 @@ function scSubmit() {
     time:    document.getElementById('f-time').value,
     date:    new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'})
   };
-  if(false) { // URL is set
+  if(false) {
     showSuccess(payload); return;
   }
   fetch(APPS_SCRIPT_URL, {
