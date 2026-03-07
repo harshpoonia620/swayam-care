@@ -33,22 +33,21 @@ body {
 
 /* ── CUSTOM CURSOR ────────────────────────────────────────── */
 .cursor {
-  position: fixed; top:0; left:0; z-index:9999; pointer-events:none;
-  mix-blend-mode: difference;
+  position:fixed; inset:0; z-index:99999; pointer-events:none; opacity:0;
+  transition:opacity .3s;
 }
 .cursor-dot {
+  position:fixed; top:0; left:0;
   width:8px; height:8px; background:var(--gold); border-radius:50%;
-  transform:translate(-50%,-50%);
-  transition: transform .1s var(--ease);
+  will-change:transform;
 }
 .cursor-ring {
-  width:40px; height:40px; border:1px solid var(--gold);
-  border-radius:50%; transform:translate(-50%,-50%);
-  transition: transform .15s var(--ease), width .3s var(--ease), height .3s var(--ease), opacity .3s;
-  opacity:.6;
+  position:fixed; top:0; left:0;
+  width:40px; height:40px; border:1px solid rgba(200,169,110,.7);
+  border-radius:50%; will-change:transform;
+  transition:width .25s, height .25s, border-color .25s;
 }
-body:has(a:hover) .cursor-ring,
-body:has(button:hover) .cursor-ring { width:60px; height:60px; opacity:1; }
+body.cursor-hover .cursor-ring { width:56px; height:56px; border-color:var(--gold); }
 
 /* ── LOADER ───────────────────────────────────────────────── */
 #loader {
@@ -816,9 +815,7 @@ footer {
   /* Corporate grid mobile */
   .corp-grid { grid-template-columns:1fr !important; }
 
-  /* Cursor off on touch */
-  .cursor { display:none; }
-  body { cursor:auto; }
+  /* Cursor off on touch — handled by JS */
 }
 </style>
 </head>
@@ -1294,7 +1291,7 @@ footer {
           </div>
         </div>
       </div>
-      <a href="https://wa.me/919953640487?text=Hello%21%20I%20want%20to%20know%20more%20about%20Swayam%20Care%20services.%20Please%20contact%20me" target="_blank" style="display:inline-block;font-family:'Montserrat';font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:16px 36px;text-decoration:none;transition:all .3s;">
+      <a href="https://wa.me/919953640487?text=Hello%20Harsh%21%20I%20saw%20Swayam%20Care%20website%20and%20want%20to%20know%20more%20about%20the%20Society%20Wellness%20Program.%20Please%20contact%20me." target="_blank" style="display:inline-block;font-family:'Montserrat';font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:16px 36px;text-decoration:none;transition:all .3s;">
         Enquire for Your Society →
       </a>
     </div>
@@ -1312,21 +1309,21 @@ footer {
           <div style="padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06);">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
               <span style="font-family:'Cormorant Garamond';font-size:20px;color:var(--white);">Wellness Month</span>
-              <span style="font-family:'Cormorant Garamond';font-size:24px;color:var(--gold);">₹3,500<span style="font-size:12px;color:var(--gray)">/resident/mo</span></span>
+              <span style="font-family:'Cormorant Garamond';font-size:24px;color:var(--gold);">₹3,999<span style="font-size:12px;color:var(--gray)">/resident/mo</span></span>
             </div>
             <p style="font-size:11px;color:rgba(255,255,255,.35);">8 yoga + 2 mental health workshops · Min 15 residents · Monthly wellness newsletter</p>
           </div>
           <div style="padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06);">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
               <span style="font-family:'Cormorant Garamond';font-size:20px;color:var(--white);">Complete Society</span>
-              <span style="font-family:'Cormorant Garamond';font-size:24px;color:var(--gold);">₹6,000<span style="font-size:12px;color:var(--gray)">/resident/mo</span></span>
+              <span style="font-family:'Cormorant Garamond';font-size:24px;color:var(--gold);">₹6,499<span style="font-size:12px;color:var(--gray)">/resident/mo</span></span>
             </div>
             <p style="font-size:11px;color:rgba(255,255,255,.35);">Yoga + Psychology workshops + Ayurveda camp · Min 20 residents · RWA co-branding included</p>
           </div>
           <div style="padding:20px 0;background:rgba(200,169,110,.05);border:1px dashed rgba(200,169,110,.3);padding:16px 14px;margin-top:8px;">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
               <span style="font-family:'Cormorant Garamond';font-size:18px;color:var(--gold2);">🧒 Kids Yoga Add-On</span>
-              <span style="font-family:'Cormorant Garamond';font-size:22px;color:var(--gold);">₹1,200<span style="font-size:12px;color:var(--gray)">/child/mo</span></span>
+              <span style="font-family:'Cormorant Garamond';font-size:22px;color:var(--gold);">₹1,499<span style="font-size:12px;color:var(--gray)">/child/mo</span></span>
             </div>
             <p style="font-size:11px;color:rgba(255,255,255,.35);">Add to any plan · Ages 5–14 · 4 fun sessions/month (30-40 min) · Balance, focus & stress relief · Max 15 kids/batch</p>
           </div>
@@ -1369,7 +1366,7 @@ footer {
           <li style="font-size:12px;color:rgba(255,255,255,.5);display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">—</span>Q&amp;A + practical takeaways</li>
           <li style="font-size:12px;color:rgba(255,255,255,.5);display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">—</span>Best entry point — easy HR approval</li>
         </ul>
-        <a href="https://wa.me/919953640487?text=Hello%21%20I%20am%20interested%20in%20the%20Corporate%20Workshop%20package%20for%20my%20company." target="_blank" style="display:block;width:100%;padding:14px;text-align:center;font-family:'Montserrat';font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(200,169,110,.35);text-decoration:none;transition:all .3s;" onmouseover="this.style.background='rgba(200,169,110,.1)'" onmouseout="this.style.background='transparent'">Enquire Now</a>
+        <a href="https://wa.me/919953640487?text=Hello%20Harsh%21%20I%20saw%20Swayam%20Care%20website.%20I%20am%20interested%20in%20a%20Corporate%20Wellness%20Workshop%20for%20my%20team.%20Please%20share%20details." target="_blank" style="display:block;width:100%;padding:14px;text-align:center;font-family:'Montserrat';font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(200,169,110,.35);text-decoration:none;transition:all .3s;" onmouseover="this.style.background='rgba(200,169,110,.1)'" onmouseout="this.style.background='transparent'">Enquire Now</a>
       </div>
 
       <!-- Card 2: Monthly Retainer — FEATURED -->
@@ -1387,9 +1384,9 @@ footer {
           <li style="font-size:12px;color:rgba(255,255,255,.5);display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">—</span>2 mental wellness workshops/month</li>
           <li style="font-size:12px;color:rgba(255,255,255,.5);display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">—</span>At office or online — flexible</li>
           <li style="font-size:12px;color:rgba(255,255,255,.5);display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">—</span>Monthly wellness report to HR</li>
-          <li style="font-size:12px;color:rgba(255,255,255,.5);display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">—</span>Swayam Care certificate for company</li>
+          <li style="font-size:12px;color:rgba(255,255,255,.5);display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">—</span>'Wellness Partner' certificate — display in office</li>
         </ul>
-        <a href="https://wa.me/919953640487?text=Hello%21%20I%20am%20interested%20in%20the%20Monthly%20Corporate%20Wellness%20Retainer%20for%20my%20company." target="_blank" style="display:block;width:100%;padding:14px;text-align:center;font-family:'Montserrat';font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);background:var(--gold);text-decoration:none;transition:all .3s;" onmouseover="this.style.background='var(--gold2)'" onmouseout="this.style.background='var(--gold)'">Get Started</a>
+        <a href="https://wa.me/919953640487?text=Hello%20Harsh%21%20I%20saw%20Swayam%20Care%20website.%20I%20am%20interested%20in%20the%20Monthly%20Corporate%20Wellness%20Retainer%20for%20my%20company.%20Please%20get%20in%20touch." target="_blank" style="display:block;width:100%;padding:14px;text-align:center;font-family:'Montserrat';font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);background:var(--gold);text-decoration:none;transition:all .3s;" onmouseover="this.style.background='var(--gold2)'" onmouseout="this.style.background='var(--gold)'">Get Started</a>
       </div>
 
       <!-- Card 3: Executive -->
@@ -1409,7 +1406,7 @@ footer {
           <li style="font-size:12px;color:rgba(255,255,255,.5);display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">—</span>Company pays · Executive benefits</li>
         </ul>
         <p style="font-size:10px;color:rgba(200,169,110,.6);margin-bottom:20px;font-style:italic;">For CEO, CFO, VP, Director, GM level</p>
-        <a href="https://wa.me/919953640487?text=Hello%21%20I%20am%20interested%20in%20the%20Executive%20Wellness%20Program%20for%20our%20leadership%20team." target="_blank" style="display:block;width:100%;padding:14px;text-align:center;font-family:'Montserrat';font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(200,169,110,.35);text-decoration:none;transition:all .3s;" onmouseover="this.style.background='rgba(200,169,110,.1)'" onmouseout="this.style.background='transparent'">Enquire Now</a>
+        <a href="https://wa.me/919953640487?text=Hello%20Harsh%21%20I%20saw%20Swayam%20Care%20website.%20I%20am%20interested%20in%20the%20Executive%20Wellness%20Program%20for%20our%20leadership.%20Please%20share%20more%20details." target="_blank" style="display:block;width:100%;padding:14px;text-align:center;font-family:'Montserrat';font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(200,169,110,.35);text-decoration:none;transition:all .3s;" onmouseover="this.style.background='rgba(200,169,110,.1)'" onmouseout="this.style.background='transparent'">Enquire Now</a>
       </div>
 
     </div><!-- end corporate grid -->
@@ -1420,7 +1417,7 @@ footer {
         <p style="font-family:'Cormorant Garamond';font-size:22px;color:var(--white);margin-bottom:6px;">Custom corporate program for your team?</p>
         <p style="font-size:12px;color:rgba(255,255,255,.4);">Every company is different. We design programs around your team size, budget, and goals.</p>
       </div>
-      <a href="https://wa.me/919953640487?text=Hello%21%20I%20would%20like%20a%20custom%20corporate%20wellness%20quote%20for%20my%20company." target="_blank" style="font-family:'Montserrat';font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:16px 32px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
+      <a href="https://wa.me/919953640487?text=Hello%20Harsh%21%20I%20saw%20Swayam%20Care%20website.%20I%20would%20like%20a%20custom%20corporate%20wellness%20quote.%20My%20company%20has%20____%20employees.%20Please%20contact%20me." target="_blank" style="font-family:'Montserrat';font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:16px 32px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
         Get Custom Quote →
       </a>
     </div>
@@ -1575,7 +1572,7 @@ footer {
               <div style="font-size:10px;color:var(--gold);">For my company / team</div>
             </div>
           </div>
-          <div class="sc-option" onclick="scSelect(this,'🏘️ Society / RWA Wellness Program')">
+          <div class="sc-option" onclick="scSelect(this,'🏘️ Society / RWA Wellness Program — from ₹1,999/resident')">
             <span style="font-size:20px;">🏘️</span>
             <div>
               <div style="font-size:12px;font-weight:600;color:var(--white);">Society / RWA</div>
@@ -1708,19 +1705,46 @@ footer {
 
 <script>
 // ── CURSOR ────────────────────────────────────────────────
-if(window.matchMedia('(pointer:fine)').matches) {
-const ring = document.getElementById('ring');
-const dot  = document.getElementById('dot');
-let mx=0, my=0, rx=0, ry=0;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
-(function animCursor(){
-  rx += (mx-rx)*.18; ry += (my-ry)*.18;
-  dot.style.left  = mx+'px'; dot.style.top  = my+'px';
-  ring.style.left = rx+'px'; ring.style.top = ry+'px';
-  requestAnimationFrame(animCursor);
-})();
+(function(){
+  var hasMouse = window.matchMedia('(pointer:fine)').matches;
+  var wrap = document.getElementById('cursorWrap');
+  if(!hasMouse || !wrap){ if(wrap) wrap.style.display='none'; return; }
 
-} // end cursor
+  var ring=document.getElementById('ring');
+  var dot =document.getElementById('dot');
+  var mx=window.innerWidth/2, my=window.innerHeight/2;
+  var rx=mx, ry=my;
+  var started=false;
+
+  // Inject cursor:none globally for desktop
+  var s=document.createElement('style');
+  s.textContent='html,body,a,button,[role="button"]{cursor:none!important}';
+  document.head.appendChild(s);
+
+  document.addEventListener('mousemove',function(e){
+    mx=e.clientX; my=e.clientY;
+    if(!started){ started=true; wrap.style.opacity='1'; }
+  });
+
+  // Hover effect on interactive elements
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest('a,button,.btn-primary,.btn-ghost,.nav-cta,.sc-option,.prog-card')){
+      document.body.classList.add('cursor-hover');
+    }
+  });
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest('a,button,.btn-primary,.btn-ghost,.nav-cta,.sc-option,.prog-card')){
+      document.body.classList.remove('cursor-hover');
+    }
+  });
+
+  (function tick(){
+    rx+=(mx-rx)*0.14; ry+=(my-ry)*0.14;
+    dot.style.transform ='translate('+(mx-4)+'px,'+(my-4)+'px)';
+    ring.style.transform='translate('+(rx-20)+'px,'+(ry-20)+'px)';
+    requestAnimationFrame(tick);
+  })();
+})();
 // ── LOADER ────────────────────────────────────────────────
 window.addEventListener('load', ()=>{
   setTimeout(()=>{ document.getElementById('loader').classList.add('hide'); }, 2200);
@@ -1775,7 +1799,7 @@ const countObs = new IntersectionObserver(entries=>{
 countEls.forEach(el=>countObs.observe(el));
 
 // ── FORM MULTI-STEP ───────────────────────────────────────
-const APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyVJlXEPdQmA937UZF3T4n2jzwR5qfUhvm5NeE3IzD9MaRIzTKDQBmPmNDn3B4rZgwE/exec';
 let selectedProgram = '';
 
 function scNext() {
@@ -1815,7 +1839,7 @@ function scSubmit() {
     time:    document.getElementById('f-time').value,
     date:    new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'})
   };
-  if(APPS_SCRIPT_URL === 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
+  if(APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyVJlXEPdQmA937UZF3T4n2jzwR5qfUhvm5NeE3IzD9MaRIzTKDQBmPmNDn3B4rZgwE/exec') {
     showSuccess(payload); return;
   }
   fetch(APPS_SCRIPT_URL, {
