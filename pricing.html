@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Swayam Care | Holistic Wellness Gurgaon</title>
+<meta name="description" content="Swayam Care wellness program pricing — Standard, Premium and Elite plans for individuals, corporates and housing societies in Gurgaon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#0d1b2e;--navy2:#152338;--navy3:#1e3050;
+  --gold:#c8a96e;--gold2:#e2c98a;--gold3:#f5e6c8;
+  --white:#ffffff;--gray:#8a9ab0;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 48px;
+  background:rgba(13,27,46,0.95);
+  border-bottom:1px solid rgba(200,169,110,0.15);
+  backdrop-filter:blur(12px);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo span{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--gold);letter-spacing:.15em;}
+.nav-back{
+  font-size:11px;letter-spacing:.2em;color:var(--gray);text-decoration:none;
+  text-transform:uppercase;transition:color .3s;
+  display:flex;align-items:center;gap:8px;
+}
+.nav-back:hover{color:var(--gold);}
+.nav-cta{
+  background:var(--gold);color:var(--navy);border:none;cursor:pointer;
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;padding:12px 24px;
+  transition:all .3s;
+}
+.nav-cta:hover{background:var(--gold2);}
+
+/* HERO */
+.hero{
+  padding:160px 48px 80px;text-align:center;
+  background:linear-gradient(180deg,var(--navy2) 0%,var(--navy) 100%);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(200,169,110,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-tag{font-size:10px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,72px);font-weight:300;line-height:1.1;margin-bottom:20px;}
+.hero h1 em{font-style:italic;color:var(--gold2);}
+.hero-desc{font-size:13px;color:var(--gray);max-width:520px;margin:0 auto 40px;line-height:1.9;font-weight:300;}
+.gold-line{width:60px;height:1px;background:var(--gold);margin:0 auto 40px;}
+
+/* TOGGLE */
+.billing-toggle{
+  display:inline-flex;align-items:center;gap:0;
+  border:1px solid rgba(200,169,110,0.3);margin-bottom:60px;
+}
+.billing-toggle button{
+  padding:10px 28px;background:transparent;border:none;cursor:pointer;
+  font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gray);transition:all .3s;
+}
+.billing-toggle button.active{background:var(--gold);color:var(--navy);font-weight:600;}
+
+/* PLANS GRID */
+.plans-section{padding:80px 48px;max-width:1300px;margin:0 auto;}
+.plans-tag{font-size:10px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:12px;}
+.plans-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;text-align:center;margin-bottom:8px;}
+.plans-title em{font-style:italic;color:var(--gold2);}
+.plans-sub{font-size:12px;color:var(--gray);text-align:center;margin-bottom:60px;}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(200,169,110,0.15);}
+
+/* PLAN CARD */
+.plan-card{
+  padding:40px 32px;border-right:1px solid rgba(200,169,110,0.1);
+  position:relative;transition:background .3s;
+}
+.plan-card:last-child{border-right:none;}
+.plan-card.popular{background:var(--navy2);border:2px solid var(--gold);}
+.popular-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:var(--navy);font-size:9px;font-weight:700;
+  letter-spacing:.2em;padding:4px 16px;text-transform:uppercase;white-space:nowrap;
+}
+.plan-icon{font-size:28px;margin-bottom:16px;}
+.plan-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin-bottom:4px;}
+.plan-tagline{font-size:10px;color:var(--gray);letter-spacing:.1em;margin-bottom:24px;text-transform:uppercase;}
+.plan-price-wrap{margin-bottom:8px;}
+.plan-price{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--gold);}
+.plan-price sup{font-size:18px;vertical-align:top;margin-top:10px;display:inline-block;}
+.plan-price sub{font-size:13px;color:var(--gray);font-family:'Montserrat',sans-serif;}
+.plan-orig{font-size:11px;color:rgba(255,255,255,0.25);text-decoration:line-through;margin-bottom:4px;}
+.plan-save{font-size:10px;color:#4ade80;letter-spacing:.1em;margin-bottom:24px;}
+.plan-divider{height:1px;background:rgba(200,169,110,0.15);margin:20px 0;}
+.plan-sessions{
+  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;
+}
+.session-pill{
+  font-size:9px;letter-spacing:.1em;padding:4px 10px;
+  border:1px solid rgba(200,169,110,0.3);color:var(--gold2);
+  text-transform:uppercase;
+}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+.plan-features li{display:flex;align-items:flex-start;gap:10px;font-size:11px;color:rgba(255,255,255,0.7);line-height:1.5;}
+.plan-features li .check{color:var(--gold);font-size:12px;margin-top:1px;flex-shrink:0;}
+.plan-features li .cross{color:rgba(255,255,255,0.2);font-size:12px;margin-top:1px;flex-shrink:0;}
+.plan-features li.dimmed{opacity:0.35;}
+.plan-btn{
+  width:100%;padding:14px;border:1px solid var(--gold);background:transparent;
+  color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;
+  letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;
+}
+.plan-btn:hover,.plan-card.popular .plan-btn{background:var(--gold);color:var(--navy);font-weight:600;}
+.plan-note{font-size:9px;color:var(--gray);text-align:center;margin-top:12px;letter-spacing:.05em;}
+
+/* 3 MONTH SECTION */
+.journey-section{
+  padding:80px 48px;
+  background:var(--navy2);
+  border-top:1px solid rgba(200,169,110,0.1);
+  border-bottom:1px solid rgba(200,169,110,0.1);
+}
+.journey-inner{max-width:1300px;margin:0 auto;}
+.journey-header{text-align:center;margin-bottom:60px;}
+.journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(200,169,110,0.1);}
+.journey-card{background:var(--navy);padding:40px 32px;text-align:center;}
+.journey-month{font-size:10px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+.journey-title{font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:16px;}
+.journey-desc{font-size:11px;color:var(--gray);line-height:1.9;}
+.journey-cta-box{
+  margin-top:48px;padding:40px;
+  border:1px solid rgba(200,169,110,0.25);
+  text-align:center;background:rgba(200,169,110,0.03);
+}
+.journey-price{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--gold);margin:16px 0 4px;}
+.journey-orig{font-size:13px;color:rgba(255,255,255,0.3);text-decoration:line-through;margin-bottom:4px;}
+.journey-saving{font-size:12px;color:#4ade80;margin-bottom:24px;}
+
+/* COMPARE TABLE */
+.compare-section{padding:80px 48px;max-width:1200px;margin:0 auto;}
+.compare-table{width:100%;border-collapse:collapse;margin-top:48px;}
+.compare-table th{
+  padding:16px 20px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);border-bottom:1px solid rgba(200,169,110,0.2);
+  font-weight:600;
+}
+.compare-table th:first-child{text-align:left;color:var(--gray);}
+.compare-table td{
+  padding:14px 20px;font-size:11px;text-align:center;
+  border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.65);
+}
+.compare-table td:first-child{text-align:left;color:rgba(255,255,255,0.85);font-weight:500;}
+.compare-table tr:hover td{background:rgba(200,169,110,0.03);}
+.compare-table .yes{color:#4ade80;font-size:14px;}
+.compare-table .no{color:rgba(255,255,255,0.2);font-size:14px;}
+.compare-table .popular-col{background:rgba(200,169,110,0.05);}
+
+/* SOCIETY & CORPORATE */
+.b2b-section{padding:80px 48px;max-width:1300px;margin:0 auto;}
+.b2b-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(200,169,110,0.1);margin-top:48px;}
+.b2b-card{background:var(--navy);padding:48px 40px;}
+.b2b-type{font-size:9px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+.b2b-title{font-family:'Cormorant Garamond',serif;font-size:32px;margin-bottom:20px;}
+.b2b-plans{display:flex;flex-direction:column;gap:12px;}
+.b2b-plan-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 20px;border:1px solid rgba(200,169,110,0.1);
+}
+.b2b-plan-row:hover{border-color:rgba(200,169,110,0.3);background:rgba(200,169,110,0.03);}
+.b2b-plan-name{font-size:13px;font-weight:500;}
+.b2b-plan-desc{font-size:10px;color:var(--gray);margin-top:2px;}
+.b2b-plan-price{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);text-align:right;}
+.b2b-plan-price span{font-size:10px;color:var(--gray);font-family:'Montserrat',sans-serif;display:block;}
+
+/* FAQ */
+.faq-section{padding:80px 48px;max-width:800px;margin:0 auto;}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;cursor:pointer;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:500;}
+.faq-q .icon{color:var(--gold);font-size:18px;transition:transform .3s;}
+.faq-a{font-size:11px;color:var(--gray);line-height:1.9;margin-top:12px;display:none;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .icon{transform:rotate(45deg);}
+
+/* CTA */
+.cta-section{
+  padding:100px 48px;text-align:center;
+  background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);
+  border-top:1px solid rgba(200,169,110,0.1);
+}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,56px);font-weight:300;margin-bottom:16px;}
+.cta-title em{font-style:italic;color:var(--gold2);}
+.cta-desc{font-size:12px;color:var(--gray);margin-bottom:40px;line-height:1.9;}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn-gold{
+  background:var(--gold);color:var(--navy);border:none;cursor:pointer;
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;padding:18px 40px;
+  text-decoration:none;display:inline-block;transition:all .3s;
+}
+.btn-gold:hover{background:var(--gold2);}
+.btn-outline{
+  background:transparent;color:var(--gold);border:1px solid var(--gold);cursor:pointer;
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;padding:18px 40px;
+  text-decoration:none;display:inline-block;transition:all .3s;
+}
+.btn-outline:hover{background:rgba(200,169,110,0.1);}
+
+/* FOOTER */
+footer{padding:32px 48px;border-top:1px solid rgba(200,169,110,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold);letter-spacing:.15em;}
+.footer-copy{font-size:10px;color:var(--gray);}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:14px 20px;}
+  .hero{padding:120px 20px 60px;}
+  .plans-section,.compare-section,.b2b-section,.faq-section,.cta-section,.journey-section{padding:60px 20px;}
+  .plans-grid{grid-template-columns:1fr;}
+  .plan-card{border-right:none;border-bottom:1px solid rgba(200,169,110,0.1);}
+  .journey-grid{grid-template-columns:1fr;}
+  .b2b-grid{grid-template-columns:1fr;}
+  .compare-section{overflow-x:auto;}
+  .compare-table{min-width:500px;}
+  footer{padding:24px 20px;flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <span>🪷 SWAYAM CARE</span>
+  </a>
+  <a class="nav-back" href="index.html">← Back to Home</a>
+  <button class="nav-cta" onclick="window.open('https://wa.me/919953640487?text=Hello%21%20I%20want%20to%20know%20more%20about%20Swayam%20Care%20pricing.%20Please%20contact%20me.','_blank')">
+    Book Free Consultation
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-tag">Transparent Pricing</p>
+  <h1>Simple Plans.<br><em>Real Results.</em></h1>
+  <div class="gold-line"></div>
+  <p class="hero-desc">No hidden fees. No long-term lock-in on first month. Choose the plan that fits your wellness journey — upgrade anytime.</p>
+  <div class="billing-toggle">
+    <button class="active" id="btn-monthly" onclick="setMonthly()">Monthly</button>
+    <button id="btn-quarterly" onclick="setQuarterly()">3 Months (Save 15%)</button>
+  </div>
+</section>
+
+<!-- INDIVIDUAL PLANS -->
+<section class="plans-section">
+  <p class="plans-tag">For Individuals</p>
+  <h2 class="plans-title">Choose Your <em>Wellness Journey</em></h2>
+  <p class="plans-sub">All plans include free 20-min consultation · Home visits in Gurgaon · Online Pan India</p>
+
+  <div class="plans-grid">
+
+    <!-- STANDARD -->
+    <div class="plan-card">
+      <div class="plan-icon">🧘</div>
+      <div class="plan-name">Standard</div>
+      <div class="plan-tagline">Begin Your Journey</div>
+      <div class="plan-orig" id="std-orig"></div>
+      <div class="plan-price-wrap">
+        <div class="plan-price"><sup>₹</sup><span id="std-price">6,999</span><sub>/month</sub></div>
+      </div>
+      <div class="plan-save" id="std-save"></div>
+      <div class="plan-sessions">
+        <span class="session-pill">8 Yoga Sessions</span>
+      </div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Personal yoga at home or online</li>
+        <li><span class="check">✓</span> MA Yoga Science certified trainer</li>
+        <li><span class="check">✓</span> Posture correction & flexibility</li>
+        <li><span class="check">✓</span> WhatsApp support</li>
+        <li><span class="check">✓</span> Flexible timing — your convenience</li>
+        <li class="dimmed"><span class="cross">✗</span> Psychology sessions</li>
+        <li class="dimmed"><span class="cross">✗</span> Ayurveda consultation</li>
+        <li class="dimmed"><span class="cross">✗</span> Prakriti report</li>
+      </ul>
+      <button class="plan-btn" onclick="window.open('https://wa.me/919953640487?text=Hello%21%20I%20am%20interested%20in%20the%20Standard%20Plan.','_blank')">
+        Get Started
+      </button>
+      <p class="plan-note">+ ₹499 one-time registration fee</p>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="plan-card popular">
+      <div class="popular-badge">Most Popular</div>
+      <div class="plan-icon">🌿</div>
+      <div class="plan-name">Premium</div>
+      <div class="plan-tagline">Complete Transformation</div>
+      <div class="plan-orig" id="prem-orig"></div>
+      <div class="plan-price-wrap">
+        <div class="plan-price"><sup>₹</sup><span id="prem-price">19,999</span><sub>/month</sub></div>
+      </div>
+      <div class="plan-save" id="prem-save"></div>
+      <div class="plan-sessions">
+        <span class="session-pill">8 Yoga</span>
+        <span class="session-pill">4 Psychology</span>
+        <span class="session-pill">2 Ayurveda</span>
+      </div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> All 3 experts — Yoga, Psychology, Ayurveda</li>
+        <li><span class="check">✓</span> 14 sessions/month total</li>
+        <li><span class="check">✓</span> Prakriti analysis + personalized diet plan</li>
+        <li><span class="check">✓</span> CBT stress & anxiety therapy</li>
+        <li><span class="check">✓</span> Monthly progress report</li>
+        <li><span class="check">✓</span> Priority scheduling</li>
+        <li><span class="check">✓</span> WhatsApp wellness support</li>
+        <li><span class="check">✓</span> Flexible timing — your convenience</li>
+      </ul>
+      <button class="plan-btn" onclick="window.open('https://wa.me/919953640487?text=Hello%21%20I%20am%20interested%20in%20the%20Premium%20Plan.','_blank')">
+        Get Started
+      </button>
+      <p class="plan-note">+ ₹499 one-time registration fee</p>
+    </div>
+
+    <!-- ELITE -->
+    <div class="plan-card">
+      <div class="plan-icon">👑</div>
+      <div class="plan-name">Elite</div>
+      <div class="plan-tagline">White-Glove Wellness</div>
+      <div class="plan-orig" id="elite-orig"></div>
+      <div class="plan-price-wrap">
+        <div class="plan-price"><sup>₹</sup><span id="elite-price">35,000</span><sub>/month</sub></div>
+      </div>
+      <div class="plan-save" id="elite-save"></div>
+      <div class="plan-sessions">
+        <span class="session-pill">All Premium +</span>
+        <span class="session-pill">VIP Access</span>
+      </div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Everything in Premium</li>
+        <li><span class="check">✓</span> Weekly personal check-in with Harsh</li>
+        <li><span class="check">✓</span> Customized 90-day wellness roadmap</li>
+        <li><span class="check">✓</span> Home visit — priority booking</li>
+        <li><span class="check">✓</span> Quarterly full health assessment</li>
+        <li><span class="check">✓</span> Dedicated WhatsApp line — Harsh direct</li>
+        <li><span class="check">✓</span> Family member — 1 free consultation/month</li>
+        <li><span class="check">✓</span> Nutrition supplements guidance</li>
+      </ul>
+      <button class="plan-btn" onclick="window.open('https://wa.me/919953640487?text=Hello%21%20I%20am%20interested%20in%20the%20Elite%20Plan.','_blank')">
+        Get Started
+      </button>
+      <p class="plan-note">+ ₹499 one-time registration fee</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 3 MONTH JOURNEY -->
+<section class="journey-section">
+  <div class="journey-inner">
+    <div class="journey-header">
+      <p class="plans-tag">Best Results</p>
+      <h2 class="plans-title">The 90-Day <em>Wellness Journey</em></h2>
+      <p class="plans-sub">Real transformation happens in 90 days — not 30. Here's what changes month by month.</p>
+    </div>
+    <div class="journey-grid">
+      <div class="journey-card">
+        <div class="journey-month">Month 1</div>
+        <div class="journey-title">Foundation 🌱</div>
+        <div class="journey-desc">Body type analysis, stress patterns identify karna, daily routine set karna. Pehle hafte mein hi better sleep feel hogi. Experts aapko personally samjhenge.</div>
+      </div>
+      <div class="journey-card">
+        <div class="journey-month">Month 2</div>
+        <div class="journey-title">Momentum 🔥</div>
+        <div class="journey-desc">Flexibility improve hogi, anxiety reduce hogi, digestion better hoga. Energy levels visibly change honi shuru. Log notice karne lagenge.</div>
+      </div>
+      <div class="journey-card">
+        <div class="journey-month">Month 3</div>
+        <div class="journey-title">Transformation ✨</div>
+        <div class="journey-desc">Sustainable habits ban jaayenge. Back pain, neend, stress — teeno mein measurable improvement. Yeh ab lifestyle ban jaayegi — programme nahi.</div>
+      </div>
+    </div>
+    <div class="journey-cta-box">
+      <p class="plans-tag">3-Month Complete Package</p>
+      <h2 class="plans-title">Premium Plan — <em>3 Months</em></h2>
+      <div class="journey-orig">₹59,997 (3 months regular price)</div>
+      <div class="journey-price">₹49,999</div>
+      <div class="journey-saving">You save ₹9,998 — 17% off</div>
+      <a class="btn-gold" href="https://wa.me/919953640487?text=Hello%21%20I%20am%20interested%20in%20the%203-Month%20Wellness%20Journey%20Package." target="_blank">Book 3-Month Journey</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare-section">
+  <p class="plans-tag" style="text-align:center;">Compare Plans</p>
+  <h2 class="plans-title" style="text-align:center;">What's <em>Included</em></h2>
+  <div style="overflow-x:auto;">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Standard</th>
+        <th class="popular-col">Premium ⭐</th>
+        <th>Elite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Yoga Sessions / month</td><td>8</td><td class="popular-col">8</td><td>8</td></tr>
+      <tr><td>Psychology Sessions / month</td><td class="no">✗</td><td class="popular-col">4</td><td>4</td></tr>
+      <tr><td>Ayurveda Sessions / month</td><td class="no">✗</td><td class="popular-col">2</td><td>2</td></tr>
+      <tr><td>Prakriti Analysis + Diet Plan</td><td class="no">✗</td><td class="popular-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td>Monthly Progress Report</td><td class="no">✗</td><td class="popular-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td>WhatsApp Support</td><td class="yes">✓</td><td class="popular-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td>Priority Scheduling</td><td class="no">✗</td><td class="popular-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td>Home Visit Priority</td><td>Standard</td><td class="popular-col">Standard</td><td>Priority</td></tr>
+      <tr><td>Weekly Check-in with Harsh</td><td class="no">✗</td><td class="popular-col no">✗</td><td class="yes">✓</td></tr>
+      <tr><td>90-Day Wellness Roadmap</td><td class="no">✗</td><td class="popular-col no">✗</td><td class="yes">✓</td></tr>
+      <tr><td>Family Free Consultation</td><td class="no">✗</td><td class="popular-col no">✗</td><td class="yes">✓</td></tr>
+      <tr><td>Quarterly Health Assessment</td><td class="no">✗</td><td class="popular-col no">✗</td><td class="yes">✓</td></tr>
+      <tr>
+        <td><strong>Monthly Price</strong></td>
+        <td><strong>₹6,999</strong></td>
+        <td class="popular-col"><strong style="color:var(--gold)">₹19,999</strong></td>
+        <td><strong>₹35,000</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- B2B PRICING -->
+<section class="b2b-section">
+  <p class="plans-tag" style="text-align:center;">B2B Programs</p>
+  <h2 class="plans-title" style="text-align:center;">Society & <em>Corporate</em></h2>
+  <div class="b2b-grid">
+
+    <!-- SOCIETY -->
+    <div class="b2b-card">
+      <p class="b2b-type">🏘️ Housing Societies / RWA</p>
+      <h3 class="b2b-title">Society Wellness</h3>
+      <div class="b2b-plans">
+        <div class="b2b-plan-row">
+          <div>
+            <div class="b2b-plan-name">Starter — Group Yoga</div>
+            <div class="b2b-plan-desc">8 group sessions · Min 10 residents</div>
+          </div>
+          <div class="b2b-plan-price">₹3,499<span>/resident/mo</span></div>
+        </div>
+        <div class="b2b-plan-row">
+          <div>
+            <div class="b2b-plan-name">Wellness Month</div>
+            <div class="b2b-plan-desc">Yoga + Mental health workshops · Min 15</div>
+          </div>
+          <div class="b2b-plan-price">₹5,999<span>/resident/mo</span></div>
+        </div>
+        <div class="b2b-plan-row">
+          <div>
+            <div class="b2b-plan-name">Complete Society</div>
+            <div class="b2b-plan-desc">Yoga + Psychology + Ayurveda camp · Min 20</div>
+          </div>
+          <div class="b2b-plan-price">₹8,999<span>/resident/mo</span></div>
+        </div>
+        <div class="b2b-plan-row">
+          <div>
+            <div class="b2b-plan-name">🧒 Kids Yoga Add-On</div>
+            <div class="b2b-plan-desc">Ages 5-14 · 4 sessions/month</div>
+          </div>
+          <div class="b2b-plan-price">₹3,500<span>/child/mo</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORPORATE -->
+    <div class="b2b-card">
+      <p class="b2b-type">🏢 Companies & Startups</p>
+      <h3 class="b2b-title">Corporate Wellness</h3>
+      <div class="b2b-plans">
+        <div class="b2b-plan-row">
+          <div>
+            <div class="b2b-plan-name">Wellness Workshop</div>
+            <div class="b2b-plan-desc">One-time · 2 hours · Team of 20-25</div>
+          </div>
+          <div class="b2b-plan-price">₹15K-25K<span>one-time</span></div>
+        </div>
+        <div class="b2b-plan-row">
+          <div>
+            <div class="b2b-plan-name">Monthly Retainer</div>
+            <div class="b2b-plan-desc">Weekly sessions · Full team · Custom</div>
+          </div>
+          <div class="b2b-plan-price">₹40K-60K<span>/month</span></div>
+        </div>
+        <div class="b2b-plan-row">
+          <div>
+            <div class="b2b-plan-name">Executive Wellness</div>
+            <div class="b2b-plan-desc">C-suite · Personal program · Premium</div>
+          </div>
+          <div class="b2b-plan-price">₹20K-30K<span>/executive/mo</span></div>
+        </div>
+        <div class="b2b-plan-row" style="border:1px dashed rgba(200,169,110,0.3);">
+          <div>
+            <div class="b2b-plan-name" style="color:var(--gold);">Custom Package</div>
+            <div class="b2b-plan-desc">Tailored to your company size & needs</div>
+          </div>
+          <div class="b2b-plan-price" style="font-size:13px;color:var(--gold);">Talk to Us</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <p class="plans-tag" style="text-align:center;">Questions</p>
+  <h2 class="plans-title" style="text-align:center;">Frequently <em>Asked</em></h2>
+
+  <div style="margin-top:40px;">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Pehle session ke baad pasand na aaye toh? <span class="icon">+</span></div>
+      <div class="faq-a">Pehle session ke baad agar aap satisfied nahi hain toh hum expert change kar sakte hain. Aapki comfort sabse pehle hai. Registration fee refundable nahi hai lekin session reschedule ya expert change free mein hoga.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Online sessions kaise hote hain? <span class="icon">+</span></div>
+      <div class="faq-a">Google Meet ya Zoom pe — aapki choice. Link WhatsApp pe bheja jaata hai session se 30 min pehle. Pan India available hai — koi bhi city ho.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">50% advance kyun? <span class="icon">+</span></div>
+      <div class="faq-a">Expert aapke liye slot block karta hai — 50% advance se commitment ensure hota hai dono taraf se. Baaki payment pehle session se pehle. PhonePe, GPay, bank transfer — sab accepted.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Session reschedule ho sakta hai? <span class="icon">+</span></div>
+      <div class="faq-a">24+ ghante pehle batao — free reschedule. 2-24 ghante mein — ek baar free, phir ₹300 charge. 2 ghante se kam — session forfeit. Aapki convenience ke liye timing flexible rakhi gayi hai.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">8 sessions mein result milega kya? <span class="icon">+</span></div>
+      <div class="faq-a">Pehle mahine mein foundation banta hai — better sleep, less stress, improved flexibility feel honi shuru hogi. Real transformation 90 days mein hoti hai isliye 3-month package recommend karte hain. Gym ek din mein nahi banta — wellness bhi nahi.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Kya main beech mein plan upgrade kar sakta hoon? <span class="icon">+</span></div>
+      <div class="faq-a">Bilkul — kabhi bhi WhatsApp pe batao. Difference amount pay karke us mahine se upgrade ho jaata hai. Downgrade bhi agले महीने से possible hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <p class="plans-tag">Still Confused?</p>
+  <h2 class="cta-title">Pehle Baat Karo — <em>Free Mein</em></h2>
+  <p class="cta-desc">20 minute ki free consultation mein Harsh personally aapki lifestyle samjhega<br>aur sahi plan suggest karega. Zero pressure. Zero commitment.</p>
+  <div class="cta-btns">
+    <a class="btn-gold" href="https://wa.me/919953640487?text=Hello%21%20I%20want%20to%20book%20a%20free%20consultation%20with%20Swayam%20Care." target="_blank">WhatsApp — Free Consultation</a>
+    <a class="btn-outline" href="index.html">View Full Website</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🪷 SWAYAM CARE</div>
+  <div class="footer-copy">© 2026 Swayam Care · Gurgaon, India · www.swayamcare.com</div>
+</footer>
+
+<script>
+// BILLING TOGGLE
+const monthly = {std:6999, prem:19999, elite:35000};
+const quarterly = {std:5949, prem:16999, elite:29750};
+
+function setMonthly(){
+  document.getElementById('btn-monthly').classList.add('active');
+  document.getElementById('btn-quarterly').classList.remove('active');
+  document.getElementById('std-price').textContent = '6,999';
+  document.getElementById('prem-price').textContent = '19,999';
+  document.getElementById('elite-price').textContent = '35,000';
+  document.getElementById('std-orig').textContent = '';
+  document.getElementById('prem-orig').textContent = '';
+  document.getElementById('elite-orig').textContent = '';
+  document.getElementById('std-save').textContent = '';
+  document.getElementById('prem-save').textContent = '';
+  document.getElementById('elite-save').textContent = '';
+}
+
+function setQuarterly(){
+  document.getElementById('btn-quarterly').classList.add('active');
+  document.getElementById('btn-monthly').classList.remove('active');
+  document.getElementById('std-price').textContent = '5,949';
+  document.getElementById('prem-price').textContent = '16,999';
+  document.getElementById('elite-price').textContent = '29,750';
+  document.getElementById('std-orig').textContent = '₹6,999/month';
+  document.getElementById('prem-orig').textContent = '₹19,999/month';
+  document.getElementById('elite-orig').textContent = '₹35,000/month';
+  document.getElementById('std-save').textContent = '✓ Save 15% — 3 month plan';
+  document.getElementById('prem-save').textContent = '✓ Save 15% — 3 month plan';
+  document.getElementById('elite-save').textContent = '✓ Save 15% — 3 month plan';
+}
+
+// FAQ TOGGLE
+function toggleFaq(el){
+  el.classList.toggle('open');
+}
+</script>
+</body>
+</html>
